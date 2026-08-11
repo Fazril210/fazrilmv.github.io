@@ -1,0 +1,432 @@
+---
+/**
+ * Projects Component
+ * Deep dive into "Hijau Berkah" Bank Sampah Production System.
+ * Handcrafted technical breakdown with architecture highlights, roles & security details.
+ */
+const projectRoles = [
+  { id: "nasabah", label: "Nasabah", desc: "Cek saldo tabungan sampah real-time, barcode QR ID nasabah, & riwayat transaksi setoran." },
+  { id: "petugas", label: "Petugas Bank Sampah", desc: "Input transaksi penimbangan sampah fisik terintegrasi IoT, scan QR, & konfirmasi saldo." },
+  { id: "rw", label: "Ketua RW", desc: "Dashboard monitoring tingkat partisipasi kebersihan warga & akumulasi total kilogram sampah." },
+  { id: "admin", label: "Superadmin", desc: "Manajemen data jenis & harga sampah, kelola hak akses 5 role, & audit log keamanan." },
+  { id: "camat", label: "Camat", desc: "Laporan eksekutif sebaran wilayah, rekapitulasi bulanan otomatis PDF, & pemetaan GIS." },
+];
+
+const architectureHighlights = [
+  {
+    title: "Next.js 14 App Router + Laravel API",
+    desc: "Frontend React Next.js 14 dengan arsitektur komponen modular terintegrasi dengan RESTful API Laravel backend pada server Ubuntu 22.04.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>`
+  },
+  {
+    title: "Sistem Antrean QR Code & Timbangan IoT",
+    desc: "Pencatatan transaksi secara real-time dan akurat langsung dari penimbangan fisik sampah menggunakan antrean QR code pengguna.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect></svg>`
+  },
+  {
+    title: "Pelaporan PDF Otomatis & Visualisasi GIS",
+    desc: "Modul pelaporan PDF yang digenerate otomatis untuk pembukuan bulanan serta pemetaan geografis sebaran volume sampah warga.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>`
+  },
+  {
+    title: "Sistem Keamanan Aplikasi Berlapis",
+    desc: "Validasi peran di sisi server, helper custom `fetchApi` dengan auto-logout saat token kedaluwarsa, dan minimalkan data sensitif di localStorage.",
+    icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`
+  }
+];
+---
+
+<section class="projects-section" id="proyek">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label-tag">03 / FEATURED PRODUCTION SYSTEM</span>
+      <h2 class="section-heading">Proyek Unggulan Implemented & Live</h2>
+    </div>
+
+    <!-- Main Featured Card -->
+    <div class="project-card reveal delay-1">
+      <div class="project-banner">
+        <div class="banner-badge-group">
+          <span class="badge-mou">Sistem Terimplementasi Lapangan</span>
+          <span class="badge-mou">MoU Resmi Insani & RW 09 Kranji</span>
+        </div>
+
+        <div class="project-header-info">
+          <h3 class="project-title">Sistem Informasi Bank Sampah “Hijau Berkah”</h3>
+          <p class="project-role-location">
+            <strong>Role:</strong> Lead / Full Stack Developer &nbsp;|&nbsp; <strong>Lokasi:</strong> RW 09 Kelurahan Kranji, Kota Bekasi &nbsp;|&nbsp; <strong>Periode:</strong> Nov 2025 – Sekarang
+          </p>
+        </div>
+      </div>
+
+      <div class="project-body">
+        <p class="project-description">
+          Merancang dan membangun sistem informasi bank sampah berbasis web dari nol yang telah <strong>resmi diluncurkan dan digunakan secara aktif</strong> oleh warga setempat. Sistem ini mempercepat proses verifikasi setoran sampah, akuntansi saldo nasabah, serta transparansi pelaporan tingkat kebersihan wilayah.
+        </p>
+
+        <!-- Tech stack tags -->
+        <div class="tech-stack-row">
+          <span class="stack-badge">Next.js 14 (App Router)</span>
+          <span class="stack-badge">Laravel API</span>
+          <span class="stack-badge">MySQL Database</span>
+          <span class="stack-badge">Ubuntu Server 22.04</span>
+          <span class="stack-badge">Timbangan IoT</span>
+          <span class="stack-badge">QR Code System</span>
+          <span class="stack-badge">Peta GIS</span>
+        </div>
+
+        <!-- Interactive 5 Roles switcher -->
+        <div class="roles-section">
+          <h4 class="sub-heading">Multi-Role Access Control (Klik Peran untuk Detail)</h4>
+          <div class="roles-grid">
+            {projectRoles.map((role, idx) => (
+              <button 
+                class={`role-tab-btn ${idx === 0 ? 'active' : ''}`}
+                data-role-id={role.id}
+                data-role-desc={role.desc}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>{role.label}</span>
+              </button>
+            ))}
+          </div>
+          <div class="role-desc-preview" id="roleDescPreview">
+            <span class="preview-badge">Akses Fitur:</span>
+            <span id="roleDescText">{projectRoles[0].desc}</span>
+          </div>
+        </div>
+
+        <!-- Highlights Grid -->
+        <div class="architecture-grid">
+          {architectureHighlights.map((item) => (
+            <div class="arch-card">
+              <div class="arch-icon" set:html={item.icon} />
+              <div>
+                <h5 class="arch-title">{item.title}</h5>
+                <p class="arch-desc">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Dynamic Role Tab Switcher
+  const tabButtons = document.querySelectorAll(".role-tab-btn");
+  const descText = document.getElementById("roleDescText");
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      const desc = btn.getAttribute("data-role-desc");
+      if (descText && desc) {
+        descText.textContent = desc;
+      }
+    });
+  });
+</script>
+
+<style>
+  .projects-section {
+    padding: 120px 0;
+    position: relative;
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-label-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78125rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .section-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .project-banner {
+    padding: 40px 40px 24px;
+    background: linear-gradient(180deg, rgba(56, 189, 248, 0.06) 0%, transparent 100%);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .banner-badge-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .badge-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-green);
+    box-shadow: 0 0 8px var(--accent-green);
+    animation: statusPulse 2s infinite;
+  }
+
+  .badge-mou {
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-size: 0.78125rem;
+    font-weight: 500;
+  }
+
+  .project-title {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .project-role-location {
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+
+  .project-role-location strong {
+    color: var(--accent-cyan);
+  }
+
+  .project-body {
+    padding: 40px;
+  }
+
+  .project-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .project-description strong {
+    color: var(--text-primary);
+  }
+
+  .tech-stack-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+
+  .stack-badge {
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  .roles-section {
+    margin-bottom: 36px;
+    padding: 24px;
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .sub-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 14px;
+  }
+
+  .roles-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .role-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+  }
+
+  .role-tab-btn svg {
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .role-tab-btn:hover {
+    border-color: var(--accent-cyan);
+    color: var(--text-primary);
+  }
+
+  .role-tab-btn.active {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+    font-weight: 600;
+  }
+
+  .role-tab-btn.active svg {
+    color: var(--accent-cyan);
+  }
+
+  .role-desc-preview {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    background: rgba(56, 189, 248, 0.04);
+    border: 1px dashed rgba(56, 189, 248, 0.25);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .preview-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    white-space: nowrap;
+  }
+
+  .architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .arch-card {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-fast);
+  }
+
+  .arch-card:hover {
+    border-color: var(--border-medium);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .arch-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+  }
+
+  .arch-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .arch-desc {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 960px) {
+    .architecture-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-banner, .project-body {
+      padding: 18px;
+    }
+    .project-title {
+      font-size: 1.25rem;
+    }
+    .roles-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .architecture-grid {
+      grid-template-columns: 1fr;
+    }
+    .banner-badge-group {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .roles-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+    .role-tab-btn {
+      padding: 6px 8px;
+      font-size: 0.75rem;
+    }
+  }
+</style>

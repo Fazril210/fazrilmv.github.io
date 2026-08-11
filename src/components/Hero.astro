@@ -1,0 +1,990 @@
+---
+/**
+ * Fullscreen Hero Component
+ * Handcrafted editorial technical layout with System Architecture Showcase Card,
+ * key developer metrics, and direct CV download CTA.
+ */
+---
+
+<section class="hero-section" id="hero">
+  <!-- Interactive Canvas Background -->
+  <canvas id="hero-canvas" class="hero-canvas"></canvas>
+  <div class="hero-ambient-glow" aria-hidden="true"></div>
+
+  <div class="container hero-container">
+    <div class="hero-grid">
+      <!-- Left Column: Typography & CTAs -->
+      <div class="hero-content">
+        <h1 class="hero-title reveal delay-1">
+          Fazril Mantovani
+        </h1>
+
+        <div class="role-subtitle reveal delay-2">
+          <span class="role-static">Full Stack Developer</span>
+          <span class="role-divider">•</span>
+          <span class="role-location">Kota Bekasi, Indonesia</span>
+        </div>
+
+        <p class="hero-description reveal delay-3">
+          Pengembang perangkat lunak berpengalaman membangun sistem web <em>production-ready</em> dan aplikasi mobile berorientasi dampak nyata. Spesialisasi dalam ekosistem Modern JavaScript (Next.js/React), PHP (Laravel/CodeIgniter), dan Mobile (Flutter).
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="hero-actions reveal delay-4">
+          <a href="#proyek" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>Eksplorasi Proyek</span>
+          </a>
+
+          <a 
+            href="/CV/CV_Fazril_Mantovani.pdf" 
+            target="_blank" 
+            download="CV_Fazril_Mantovani.pdf" 
+            class="btn-secondary"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Unduh CV (PDF)</span>
+          </a>
+        </div>
+
+        <!-- Metric highlights -->
+        <div class="hero-metrics reveal delay-4">
+          <div class="metric-item">
+            <span class="metric-value">Multi-Role</span>
+            <span class="metric-label">Arsitektur Enterprise & IoT</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-value">Juara 1</span>
+            <span class="metric-label">Nasional IT Competition 2024</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-value">Web & Mobile</span>
+            <span class="metric-label">Sistem Terintegrasi Full Stack</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Network & Infrastructure Topology Card -->
+      <div class="hero-visual reveal delay-2">
+        <div class="network-topology-card" id="topologyCard">
+          <div class="topology-header">
+            <div class="topology-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+              <span>System Infrastructure & Devices</span>
+            </div>
+            <div class="topology-status-indicator">
+              <span class="topology-status-text">Network Connected</span>
+            </div>
+          </div>
+
+          <!-- Canvas/Nodes Container -->
+          <div class="topology-canvas-container">
+            <canvas id="topology-canvas" class="topology-canvas"></canvas>
+
+            <div class="node-item node-cloud" data-id="cloud" data-node="Cloud / Internet Gateway (HTTPS Routing)">
+              <div class="node-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+                </svg>
+              </div>
+              <span class="node-label">Cloud Gateway</span>
+            </div>
+
+            <div class="node-item node-server" data-id="server" data-node="App Server: Ubuntu 22.04 LTS & REST API">
+              <div class="node-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="node-label">API Server</span>
+            </div>
+
+            <div class="node-item node-db" data-id="db" data-node="Database Storage: MySQL Relational Database">
+              <div class="node-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                </svg>
+              </div>
+              <span class="node-label">Database</span>
+            </div>
+
+            <div class="node-item node-web" data-id="web" data-node="Web Client: Next.js 14 Dashboard App">
+              <div class="node-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <span class="node-label">Web Client</span>
+            </div>
+
+            <div class="node-item node-mobile" data-id="mobile" data-node="Mobile App: Flutter Cross-Platform Application">
+              <div class="node-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="node-label">Mobile App</span>
+            </div>
+
+            <div class="node-item node-iot" data-id="iot" data-node="IoT Device: Digital Scale & QR Scanner Integration">
+              <div class="node-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <span class="node-label">IoT Sensor</span>
+            </div>
+          </div>
+
+          <div class="topology-footer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span class="topology-info-text" id="topologyTooltip">Hover node untuk melihat detail arsitektur terhubung</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#tentang" class="scroll-down-btn" aria-label="Scroll ke section tentang">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <polyline points="19 12 12 19 5 12"></polyline>
+    </svg>
+  </a>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0 70px;
+    background: radial-gradient(circle at 75% 20%, rgba(56, 189, 248, 0.07) 0%, transparent 55%),
+                radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    overflow: hidden;
+  }
+
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-ambient-glow {
+    position: absolute;
+    top: 45%;
+    right: 8%;
+    transform: translate(0, -50%);
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.14) 0%, rgba(129, 140, 248, 0.07) 50%, transparent 70%);
+    filter: blur(70px);
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 0;
+    animation: glowPulse 10s ease-in-out infinite alternate;
+  }
+
+  @keyframes glowPulse {
+    0% { opacity: 0.6; transform: translate(0, -50%) scale(0.95); }
+    100% { opacity: 1; transform: translate(-25px, -45%) scale(1.1); }
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* Status Pill */
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    margin-bottom: 24px;
+  }
+
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-green);
+    box-shadow: 0 0 10px var(--accent-green);
+  }
+
+  .status-text {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent-green);
+    letter-spacing: 0.01em;
+  }
+
+  /* Main Title */
+  .hero-title {
+    font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+
+  .role-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    color: var(--accent-cyan);
+    margin-bottom: 20px;
+  }
+
+  .role-divider {
+    color: var(--text-muted);
+  }
+
+  .role-location {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 580px;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+
+  .hero-description em {
+    color: var(--text-primary);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* Actions */
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 44px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    background-color: var(--accent-cyan);
+    color: #080c14;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background-color: #7dd3fc;
+    box-shadow: 0 8px 30px rgba(56, 189, 248, 0.4);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-medium);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+
+  /* Metrics */
+  .hero-metrics {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .metric-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric-value {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+  }
+
+  .metric-label {
+    font-size: 0.78125rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .metric-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border-subtle);
+  }
+
+  /* Right Visual: Interactive Infrastructure Topology Card */
+  .hero-visual {
+    perspective: 1000px;
+  }
+
+  .network-topology-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease-out;
+    overflow: hidden;
+  }
+
+  .network-topology-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(56, 189, 248, 0.12),
+      transparent 50%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .network-topology-card:hover::before {
+    opacity: 1;
+  }
+
+  .network-topology-card:hover {
+    border-color: rgba(56, 189, 248, 0.45);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.12);
+  }
+
+  .topology-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 14px;
+  }
+
+  .topology-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+  }
+
+  .topology-status-indicator {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .topology-canvas-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: rgba(8, 12, 20, 0.5);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .topology-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Node Items styling */
+  .node-item {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .node-item:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+
+  .node-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    color: var(--accent-cyan);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.25s ease;
+  }
+
+  .node-item:hover .node-icon {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    background: rgba(56, 189, 248, 0.12);
+  }
+
+  .node-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    background: rgba(8, 12, 20, 0.85);
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
+    transition: all 0.25s ease;
+  }
+
+  .node-item:hover .node-label {
+    color: var(--text-primary);
+    border-color: var(--accent-cyan);
+  }
+
+  /* Node Positions percentage coordinates */
+  .node-cloud { top: 20%; left: 50%; }
+  .node-server { top: 50%; left: 50%; }
+  .node-db { top: 80%; left: 50%; }
+  .node-web { top: 32%; left: 18%; }
+  .node-mobile { top: 68%; left: 18%; }
+  .node-iot { top: 50%; left: 82%; }
+
+  .node-server .node-icon {
+    width: 48px;
+    height: 48px;
+    border-color: rgba(56, 189, 248, 0.5);
+    background: rgba(56, 189, 248, 0.08);
+  }
+
+  .topology-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 14px;
+    margin-top: 14px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.78125rem;
+    color: var(--text-muted);
+  }
+
+  .topology-footer svg {
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+  }
+
+  /* Scroll indicator */
+  .scroll-down-btn {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-medium);
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+  }
+
+  .scroll-down-btn:hover {
+    color: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .hero-section {
+      padding-top: 110px;
+      padding-bottom: 50px;
+    }
+    .topology-canvas-container {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-section {
+      padding-top: 100px;
+      padding-bottom: 40px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 7.5vw, 3.25rem);
+    }
+    .role-subtitle {
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .hero-description {
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 32px;
+      width: 100%;
+    }
+    .btn-primary, .btn-secondary {
+      justify-content: center;
+      width: 100%;
+      padding: 12px 10px;
+      font-size: 0.82rem;
+      gap: 6px;
+      text-align: center;
+    }
+    .btn-primary svg, .btn-secondary svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-top: 16px;
+    }
+    .metric-divider {
+      display: none;
+    }
+    .metric-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+    }
+    .metric-value {
+      font-size: 1.1rem;
+    }
+    .network-topology-card {
+      padding: 16px;
+      border-radius: var(--radius-lg);
+    }
+    .topology-canvas-container {
+      height: 250px;
+    }
+    .node-icon {
+      width: 36px;
+      height: 36px;
+    }
+    .node-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+    .node-server .node-icon {
+      width: 40px;
+      height: 40px;
+    }
+    .node-label {
+      font-size: 0.6rem;
+      padding: 1px 6px;
+    }
+    /* Shift side nodes inwards on narrow mobile to prevent horizontal clip */
+    .node-web { top: 30%; left: 22%; }
+    .node-mobile { top: 70%; left: 22%; }
+    .node-iot { top: 50%; left: 78%; }
+  }
+
+  @media (max-width: 400px) {
+    .hero-metrics {
+      grid-template-columns: 1fr;
+    }
+    .topology-canvas-container {
+      height: 230px;
+    }
+    .node-web { top: 28%; left: 24%; }
+    .node-mobile { top: 72%; left: 24%; }
+    .node-iot { top: 50%; left: 76%; }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const heroSection = document.getElementById("hero");
+    const canvas = document.getElementById("hero-canvas") as HTMLCanvasElement | null;
+    const topCard = document.getElementById("topologyCard") as HTMLElement | null;
+    const topCanvas = document.getElementById("topology-canvas") as HTMLCanvasElement | null;
+    const topTooltip = document.getElementById("topologyTooltip");
+
+    // 1. Interactive Particle Constellation Mesh Background
+    if (canvas && heroSection) {
+      const ctx = canvas.getContext("2d");
+      let width = (canvas.width = heroSection.clientWidth);
+      let height = (canvas.height = heroSection.clientHeight);
+
+      let mouse = { x: -1000, y: -1000, active: false };
+
+      interface Particle {
+        x: number;
+        y: number;
+        vx: number;
+        vy: number;
+        radius: number;
+        color: string;
+        alpha: number;
+      }
+
+      const particleCount = Math.floor(Math.min(width, 1400) / 24);
+      const particles: Particle[] = [];
+
+      const colors = [
+        "rgba(56, 189, 248, ",   // Cyan
+        "rgba(129, 140, 248, ",  // Indigo
+        "rgba(16, 185, 129, "    // Green
+      ];
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: Math.random() * 2 + 1,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          alpha: Math.random() * 0.35 + 0.2,
+        });
+      }
+
+      function handleResize() {
+        if (!canvas || !heroSection) return;
+        width = canvas.width = heroSection.clientWidth;
+        height = canvas.height = heroSection.clientHeight;
+      }
+
+      window.addEventListener("resize", handleResize);
+
+      heroSection.addEventListener("mousemove", (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+        mouse.active = true;
+      });
+
+      heroSection.addEventListener("mouseleave", () => {
+        mouse.active = false;
+        mouse.x = -1000;
+        mouse.y = -1000;
+      });
+
+      function animate() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p1 = particles[i];
+          p1.x += p1.vx;
+          p1.y += p1.vy;
+
+          if (p1.x < 0 || p1.x > width) p1.vx *= -1;
+          if (p1.y < 0 || p1.y > height) p1.vy *= -1;
+
+          if (mouse.active) {
+            const dx = mouse.x - p1.x;
+            const dy = mouse.y - p1.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 130) {
+              const angle = Math.atan2(dy, dx);
+              const force = (130 - dist) / 130;
+              p1.x -= Math.cos(angle) * force * 1.1;
+              p1.y -= Math.sin(angle) * force * 1.1;
+
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - dist / 130) * 0.2})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+
+          ctx.beginPath();
+          ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p1.color + p1.alpha + ")";
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(p1.x, p1.y);
+              ctx.lineTo(p2.x, p2.y);
+              const opacity = (1 - dist / 100) * 0.14;
+              ctx.strokeStyle = `rgba(56, 189, 248, ${opacity})`;
+              ctx.lineWidth = 0.7;
+              ctx.stroke();
+            }
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+    }
+
+    // 2. Connected Infrastructure & Devices Topology Canvas Animation
+    if (topCanvas && topCard) {
+      const tCtx = topCanvas.getContext("2d");
+      const container = topCanvas.parentElement;
+
+      let activeNodeId: string | null = null;
+
+      const nodesMap: Record<string, { xPct: number; yPct: number; label: string; connections: string[] }> = {
+        cloud: { xPct: 0.50, yPct: 0.20, label: "Cloud Gateway (HTTPS Routing)", connections: ["server"] },
+        server: { xPct: 0.50, yPct: 0.50, label: "API Server: Ubuntu 22.04 LTS & REST API", connections: ["cloud", "db", "web", "mobile", "iot"] },
+        db: { xPct: 0.50, yPct: 0.80, label: "Database Storage: MySQL Relational DB", connections: ["server"] },
+        web: { xPct: 0.18, yPct: 0.32, label: "Web Client: Next.js 14 Dashboard App", connections: ["server"] },
+        mobile: { xPct: 0.18, yPct: 0.68, label: "Mobile App: Flutter Application", connections: ["server"] },
+        iot: { xPct: 0.82, yPct: 0.50, label: "IoT Device: Digital Scale & QR Integration", connections: ["server"] },
+      };
+
+      interface DataPacket {
+        from: string;
+        to: string;
+        progress: number;
+        speed: number;
+      }
+
+      const packets: DataPacket[] = [
+        { from: "cloud", to: "server", progress: 0.0, speed: 0.009 },
+        { from: "server", to: "db", progress: 0.35, speed: 0.01 },
+        { from: "web", to: "server", progress: 0.7, speed: 0.008 },
+        { from: "mobile", to: "server", progress: 0.15, speed: 0.009 },
+        { from: "iot", to: "server", progress: 0.5, speed: 0.008 },
+      ];
+
+      function resizeTopology() {
+        if (!topCanvas || !container) return;
+        topCanvas.width = container.clientWidth;
+        topCanvas.height = container.clientHeight;
+      }
+
+      resizeTopology();
+      window.addEventListener("resize", resizeTopology);
+
+      const nodeElements = topCard.querySelectorAll(".node-item");
+      nodeElements.forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          const id = el.getAttribute("data-id");
+          const info = el.getAttribute("data-node");
+          activeNodeId = id;
+          if (topTooltip && info) {
+            topTooltip.textContent = info;
+            topTooltip.style.color = "var(--accent-cyan)";
+          }
+        });
+
+        el.addEventListener("mouseleave", () => {
+          activeNodeId = null;
+          if (topTooltip) {
+            topTooltip.textContent = "Hover node untuk melihat detail arsitektur terhubung";
+            topTooltip.style.color = "var(--text-muted)";
+          }
+        });
+      });
+
+      function drawTopology() {
+        if (!tCtx || !topCanvas || !container) return;
+        const w = topCanvas.width;
+        const h = topCanvas.height;
+
+        tCtx.clearRect(0, 0, w, h);
+
+        const pos: Record<string, { x: number; y: number }> = {};
+        for (const [id, n] of Object.entries(nodesMap)) {
+          pos[id] = { x: n.xPct * w, y: n.yPct * h };
+        }
+
+        const drawnConnections = new Set<string>();
+
+        for (const [id, n] of Object.entries(nodesMap)) {
+          const p1 = pos[id];
+          for (const targetId of n.connections) {
+            const pairKey = [id, targetId].sort().join("-");
+            if (drawnConnections.has(pairKey)) continue;
+            drawnConnections.add(pairKey);
+
+            const p2 = pos[targetId];
+            const isHighlighted = activeNodeId === id || activeNodeId === targetId;
+
+            tCtx.beginPath();
+            tCtx.moveTo(p1.x, p1.y);
+            tCtx.lineTo(p2.x, p2.y);
+
+            if (isHighlighted) {
+              tCtx.strokeStyle = "rgba(56, 189, 248, 0.85)";
+              tCtx.lineWidth = 2.2;
+              tCtx.shadowColor = "rgba(56, 189, 248, 0.6)";
+              tCtx.shadowBlur = 10;
+            } else {
+              tCtx.strokeStyle = activeNodeId ? "rgba(255, 255, 255, 0.05)" : "rgba(56, 189, 248, 0.25)";
+              tCtx.lineWidth = 1.2;
+              tCtx.shadowBlur = 0;
+            }
+            tCtx.stroke();
+            tCtx.shadowBlur = 0;
+          }
+        }
+
+        // Draw animated glowing data packets
+        packets.forEach((packet) => {
+          packet.progress += packet.speed;
+          if (packet.progress > 1) packet.progress = 0;
+
+          const p1 = pos[packet.from];
+          const p2 = pos[packet.to];
+          if (p1 && p2) {
+            const currX = p1.x + (p2.x - p1.x) * packet.progress;
+            const currY = p1.y + (p2.y - p1.y) * packet.progress;
+
+            const isHighlighted = activeNodeId === packet.from || activeNodeId === packet.to;
+
+            tCtx.beginPath();
+            tCtx.arc(currX, currY, isHighlighted ? 3.5 : 2.5, 0, Math.PI * 2);
+            tCtx.fillStyle = isHighlighted ? "#7dd3fc" : "#38bdf8";
+            tCtx.shadowColor = "#38bdf8";
+            tCtx.shadowBlur = isHighlighted ? 12 : 6;
+            tCtx.fill();
+            tCtx.shadowBlur = 0;
+          }
+        });
+
+        requestAnimationFrame(drawTopology);
+      }
+
+      drawTopology();
+    }
+
+    // 3. 3D Card Tilt Effect on Topology Card
+    if (topCard) {
+      let bounds: DOMRect;
+
+      topCard.addEventListener("mouseenter", () => {
+        bounds = topCard.getBoundingClientRect();
+        topCard.style.transition = "transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease";
+      });
+
+      topCard.addEventListener("mousemove", (e) => {
+        if (!bounds) bounds = topCard.getBoundingClientRect();
+        const mouseX = e.clientX - bounds.left;
+        const mouseY = e.clientY - bounds.top;
+        const centerX = bounds.width / 2;
+        const centerY = bounds.height / 2;
+
+        const rotateX = (mouseY - centerY) / 22;
+        const rotateY = (centerX - mouseX) / 22;
+
+        topCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(8px)`;
+        topCard.style.setProperty("--mouse-x", `${mouseX}px`);
+        topCard.style.setProperty("--mouse-y", `${mouseY}px`);
+      });
+
+      topCard.addEventListener("mouseleave", () => {
+        topCard.style.transition = "transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease";
+        topCard.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+      });
+    }
+  });
+</script>
+

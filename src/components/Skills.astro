@@ -1,0 +1,222 @@
+---
+/**
+ * Skills Component
+ * Interactive technical stack section categorized into clear domain blocks.
+ */
+const skillGroups = [
+  {
+    category: "Frontend & Mobile",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+    color: "#38bdf8",
+    items: [
+      { name: "Next.js 14", level: "Production", highlight: true },
+      { name: "React", level: "Advanced", highlight: true },
+      { name: "Flutter Mobile", level: "National Award", highlight: true },
+      { name: "JavaScript / TypeScript", level: "Advanced", highlight: true },
+      { name: "HTML5 / CSS3 / Tailwind", level: "Experienced", highlight: false }
+    ]
+  },
+  {
+    category: "Backend & Basis Data",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>`,
+    color: "#818cf8",
+    items: [
+      { name: "Laravel", level: "Production", highlight: true },
+      { name: "PHP (Native & CI3)", level: "Experienced", highlight: false },
+      { name: "MySQL", level: "Relational DB", highlight: true },
+      { name: "SQL Server", level: "Enterprise DB", highlight: false },
+      { name: "RESTful API Integration", level: "Production", highlight: true }
+    ]
+  },
+  {
+    category: "Infrastruktur & Tools",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>`,
+    color: "#10b981",
+    items: [
+      { name: "Git / GitHub", level: "Version Control", highlight: true },
+      { name: "Linux (Ubuntu Server)", level: "Deployment", highlight: true },
+      { name: "VS Code & Android Studio", level: "Primary IDE", highlight: false },
+      { name: "Figma UI/UX", level: "Design Handoff", highlight: false }
+    ]
+  },
+  {
+    category: "Analisis & Visualisasi Data",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>`,
+    color: "#f59e0b",
+    items: [
+      { name: "Tableau", level: "Data Viz", highlight: true },
+      { name: "RapidMiner", level: "Data Mining", highlight: false },
+      { name: "Python", level: "Data Scripting", highlight: false },
+      { name: "R Language", level: "Analytics", highlight: false }
+    ]
+  }
+];
+---
+
+<section class="skills-section" id="keahlian">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label-tag">02 / TECH STACK & CAPABILITIES</span>
+      <h2 class="section-heading">Keahlian & Ekosistem Teknologi</h2>
+    </div>
+
+    <div class="skills-grid">
+      {skillGroups.map((group, index) => (
+        <div class={`skill-card reveal delay-${(index % 3) + 1}`}>
+          <div class="card-header">
+            <div class="icon-box" style={`color: ${group.color}; background: ${group.color}15; border-color: ${group.color}30;`} set:html={group.icon} />
+            <h3 class="group-title">{group.category}</h3>
+          </div>
+
+          <div class="items-list">
+            {group.items.map((item) => (
+              <div class={`skill-item ${item.highlight ? 'highlight-skill' : ''}`}>
+                <div class="item-main">
+                  <span class="skill-name">{item.name}</span>
+                  <span class="skill-level">{item.level}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    padding: 120px 0;
+    position: relative;
+    background-color: var(--bg-dark);
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-label-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78125rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .section-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 24px;
+  }
+
+  .skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: var(--transition-base);
+  }
+
+  .skill-card:hover {
+    border-color: var(--border-medium);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    flex-shrink: 0;
+  }
+
+  .group-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skill-item {
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-subtle);
+    transition: var(--transition-fast);
+  }
+
+  .skill-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-medium);
+  }
+
+  .skill-item.highlight-skill {
+    border-color: rgba(56, 189, 248, 0.2);
+    background: rgba(56, 189, 248, 0.03);
+  }
+
+  .item-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .skill-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .skill-level {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 960px) {
+    .skills-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .group-card {
+      padding: 20px;
+    }
+  }
+</style>

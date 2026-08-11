@@ -1,0 +1,244 @@
+---
+/**
+ * Achievement Component
+ * Showcase of Juara 1 Tingkat Nasional - Indoneris IT Competition 2024
+ */
+---
+
+<section class="achievement-section" id="prestasi">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label-tag">04 / NATIONAL AWARD & RECOGNITION</span>
+      <h2 class="section-heading">Penghargaan Kompetisi Nasional</h2>
+    </div>
+
+    <div class="award-card reveal delay-1">
+      <div class="award-badge-side">
+        <div class="trophy-glow-circle">
+          <svg class="trophy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+            <path d="M4 22h16"></path>
+            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+          </svg>
+        </div>
+        <div class="award-rank">JUARA 1</div>
+        <div class="award-scope">TINGKAT NASIONAL</div>
+      </div>
+
+      <div class="award-main-content">
+        <div class="award-meta-row">
+          <span class="meta-tag">Indoneris IT Competition 2024</span>
+          <span class="meta-dot">•</span>
+          <span class="meta-date">Desember 2024</span>
+          <span class="meta-dot">•</span>
+          <span class="meta-location">Kota Bekasi</span>
+        </div>
+
+        <h3 class="award-project-name">Aplikasi Anti Perundungan Berbasis Mobile</h3>
+        
+        <p class="award-role-badge">
+          <strong>Peran:</strong> Ketua Tim Developer (Flutter Mobile Development)
+        </p>
+
+        <p class="award-description">
+          Memimpin tim dalam merancang dan mengembangkan aplikasi mobile berbasis Flutter yang bertujuan untuk pencegahan, pelaporan insiden secara anonim dan aman, serta penanganan kasus perundungan (bullying) di kalangan pelajar.
+        </p>
+
+        <div class="criteria-box">
+          <span class="criteria-title">Faktor Penilaian Utama Juri:</span>
+          <div class="criteria-tags">
+            <span class="c-tag">Inovasi Fitur Solutif</span>
+            <span class="c-tag">Dampak Sosial Tinggi</span>
+            <span class="c-tag">Kualitas Teknis & Architecture</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .achievement-section {
+    padding: 120px 0;
+    position: relative;
+    background-color: var(--bg-dark);
+  }
+
+  .section-header {
+    margin-bottom: 56px;
+  }
+
+  .section-label-tag {
+    font-family: var(--font-mono);
+    font-size: 0.78125rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .section-heading {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .award-card {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    background: var(--bg-card);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .award-badge-side {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.03) 100%);
+    border-right: 1px solid rgba(245, 158, 11, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .trophy-glow-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-amber);
+    margin-bottom: 16px;
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+  }
+
+  .trophy-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .award-rank {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--accent-amber);
+    line-height: 1.1;
+  }
+
+  .award-scope {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  .award-main-content {
+    padding: 40px;
+  }
+
+  .award-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--accent-amber);
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .meta-dot {
+    color: var(--text-muted);
+  }
+
+  .award-project-name {
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .award-role-badge {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+
+  .award-role-badge strong {
+    color: var(--accent-cyan);
+  }
+
+  .award-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .criteria-box {
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .criteria-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .criteria-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .c-tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    color: var(--accent-amber);
+    font-size: 0.78125rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 820px) {
+    .award-card {
+      grid-template-columns: 1fr;
+    }
+    .award-badge-side {
+      border-right: none;
+      border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+      padding: 24px;
+    }
+    .award-content {
+      padding: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .award-badge-side, .award-content {
+      padding: 18px;
+    }
+    .award-title {
+      font-size: 1.25rem;
+    }
+  }
+</style>
